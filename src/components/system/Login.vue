@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="bg"></div>
-		<div class="content_box">
+		<div class="content_box"> 
 			<div class="infoList_box">
 				<div class="infoList_title">圣奥</div>
 				<div class="infoList_subtitle">欢迎使用 智能办公后台管理系统</div>
