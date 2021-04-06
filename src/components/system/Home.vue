@@ -389,9 +389,6 @@
 				justify-content: flex-end;
 				height: 48px;
 				background-color: #E28964;
-				&:hover {
-					background-color: #21A5EF;
-				}
 				.head_company_name {
 					font-size: 16px;
 					color: #262626;

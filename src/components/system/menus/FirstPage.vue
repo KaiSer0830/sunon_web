@@ -1284,11 +1284,13 @@
 					align-items: center;
 		
 					.visit_trend_title_right_box_word {
+						cursor: pointer;
 						margin-right: 40px;
 						white-space: nowrap;
 					}
 		
 					.visit_trend_title_right_box_word_sel {
+						cursor: pointer;
 						margin-right: 40px;
 						white-space: nowrap;
 						color: #7AB03A;
@@ -1476,12 +1478,14 @@
 						font-weight: 400;
 						margin-right: 25px;
 						.department_rank_title_right_content {
+							cursor: pointer;
 							height: 32px;
 							width: 86px;
 							color: #262626;
 							line-height: 32px;
 						}
 						.department_rank_title_right_content_sel {
+							cursor: pointer;
 							height: 32px;
 							width: 86px;
 							line-height: 32px;
