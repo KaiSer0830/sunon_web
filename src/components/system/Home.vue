@@ -1,10 +1,10 @@
 <template>
-	<div class="container">
+	<div class="home_container">
 		<div class="left_box">
 			<img src="../../assets/system/sunon.png" />
 			<div class="menu_box">
 				<div v-for="(item, index) in menuList" class="menu_content">
-					<div :class="item.status ? 'menu_row_selected' : 'menu_row'"  @click="menuClick(item)">
+					<div :class="item.status ? 'menu_row_selected':'menu_row'"  @click="menuClick(item)">
 						<div class="menu_row_left">
 							<img :src="item.status ? item.icon_s : item.icon" class="menu_img" />
 							<div class="menu_title">{{item.title}}</div>
@@ -15,7 +15,7 @@
 						</div>
 					</div>
 					<div v-if="item.status && item.subList.length != 0" v-for="(subItem, subIndex) in item.subList" class="submenu_box">
-						<div class="submenu_row" @click="activeMenuAdd(item, subItem)">{{subItem.title}}</div>
+						<div :class="subItem.componentName == activeComponentName ? 'submenu_row_sel':'submenu_row'" @click="activeMenuAdd(item, subItem)">{{subItem.title}}</div>
 					</div>
 				</div>
 			</div>
@@ -69,11 +69,15 @@
 <script>
 	import FirstPage from './menus/FirstPage.vue'
 	import CompanyList from './menus/CompanyList.vue'
+	import AppUserList from './menus/AppUserList.vue'
+	import DeskBodySignList from './menus/DeskBodySignList.vue'
 	export default {
-		name: 'userLogin',
+		name: 'Home',
 		components: {
 			FirstPage,
-			CompanyList
+			CompanyList,
+			AppUserList,
+			DeskBodySignList
 		},
 		data() {
 			return {
@@ -107,7 +111,7 @@
 					status: false,
 					subList: [{
 						title: '设备绑定数据管理',
-						componentName: 'CompanyList'
+						componentName: 'DeviceBindList'
 					}]
 				},{
 					title: 'App用户管理',
@@ -116,14 +120,14 @@
 					icon_a: require('../../assets/system/icons/user_a.png'),
 					status: false,
 					subList: [{
-						title: 'App注册数据数据',
-						componentName: 'CompanyList'
+						title: 'App注册数据',
+						componentName: 'AppUserList'
 					}, {
 						title: 'App用户详细数据',
-						componentName: 'CompanyList'
+						componentName: 'AppUserInfoList'
 					}, {
 						title: 'App注册用户统计数据',
-						componentName: 'CompanyList'
+						componentName: 'AppUserNumberList'
 					}]
 				},{
 					title: '体征数据',
@@ -133,16 +137,16 @@
 					status: false,
 					subList: [{
 						title: 'App座椅体征数据统计',
-						componentName: 'CompanyList'
+						componentName: 'ChairBodySignList'
 					}, {
 						title: 'App升降桌体征数据统计',
-						componentName: 'CompanyList'
+						componentName: 'DeskBodySignList'
 					}, {
 						title: 'App座椅实时体征数据',
-						componentName: 'CompanyList'
+						componentName: 'ChairLiveBodySignList'
 					}, {
 						title: 'App座椅历史体征数据',
-						componentName: 'CompanyList'
+						componentName: 'ChairHistoryBodySignList'
 					}]
 				},{
 					title: '视频管理',
@@ -152,16 +156,16 @@
 					status: false,
 					subList: [{
 						title: '视频文件管理',
-						componentName: 'CompanyList'
+						componentName: 'VideoFileList'
 					}, {
 						title: '视频类型管理',
-						componentName: 'CompanyList'
+						componentName: 'VideoCategoryList'
 					}, {
 						title: 'App视频参与记录管理',
-						componentName: 'CompanyList'
+						componentName: 'VideoParticipateList'
 					}, {
 						title: 'App视频历史记录',
-						componentName: 'CompanyList'
+						componentName: 'VideoHistoryList'
 					}]
 				},{
 					title: '系统管理',
@@ -171,13 +175,13 @@
 					status: false,
 					subList: [{
 						title: '用户管理',
-						componentName: 'CompanyList'
+						componentName: 'SystemUserList'
 					}, {
 						title: '角色管理',
-						componentName: 'CompanyList'
+						componentName: 'SystemRoleList'
 					}, {
 						title: '系统菜单',
-						componentName: 'CompanyList'
+						componentName: 'SystemMenuList'
 					}]
 				},{
 					title: '系统工具',
@@ -187,7 +191,7 @@
 					status: false,
 					subList: [{
 						title: '代码生成',
-						componentName: 'CompanyList'
+						componentName: 'SystemToolList'
 					}]
 				}],
 				userSetList: [{
@@ -260,9 +264,11 @@
 					if(index == this.activeSubMenuList.length - 1) {		//删除的是数组最后一个元素
 						if(this.activeSubMenuList.length > 1) {			//如果不止一个元素，则将选中状态给前一个元素，如果只有一个元素则不操作
 							this.activeSubMenuList[index - 1].status = true;
+							this.activeComponentName = this.activeSubMenuList[index - 1].componentName;
 						}		
 					}else {						//删除的是数组中间的一个元素
 						this.activeSubMenuList[index + 1].status = true;			//将选中状态给后一个元素
+						this.activeComponentName = this.activeSubMenuList[index + 1].componentName;
 					}
 				}
 				this.activeSubMenuList.splice(index, 1);
@@ -289,7 +295,7 @@
 </script>
 
 <style scoped lang="scss">
-	.container {
+	.home_container {
 		position: absolute;
 		display: flex;
 		width: 100%;
@@ -316,6 +322,7 @@
 					align-items: center;
 					width: 100%;
 					cursor: pointer;
+					font-weight: 600;
 					.menu_row {
 						display: flex;
 						align-items: center;
@@ -364,8 +371,14 @@
 						.submenu_row {
 							width: 100%;
 							height: 48px;
-							// background-color: deeppink;
 							color: #8C8C8C;
+							font-size: 14px;
+							line-height: 48px;
+						}
+						.submenu_row_sel {
+							width: 100%;
+							height: 48px;
+							color: #FEFEFE;
 							font-size: 14px;
 							line-height: 48px;
 						}

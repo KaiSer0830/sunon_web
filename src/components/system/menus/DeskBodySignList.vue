@@ -10,7 +10,7 @@
 		},
 		data() {
 			return {
-				dataUrl: 'http://121.43.158.185:8082/system/company/companyList'
+				dataUrl: 'http://121.43.158.185:8082/system/appDeskBodySign/appDeskBodySignList'
 			}
 		},
 		mounted() {

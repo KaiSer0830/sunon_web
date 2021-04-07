@@ -287,6 +287,8 @@
 		},
 		methods: {
 			visitTrendTimesClick(item, index) {
+				if(item.status)				//如果已经处于选中状态，不切换数据
+					return;
 				for (let i = 0; i < this.visitTrendTimesList.length; i++) {
 					this.visitTrendTimesList[i].status = false;
 				}
@@ -306,6 +308,8 @@
 				}
 			},
 			departmentBodyDataClick(item, index) {
+				if(item.status)				//如果已经处于选中状态，不切换数据
+					return;
 				for (let i = 0; i < this.departmentBodyDataList.length; i++) {
 					this.departmentBodyDataList[i].status = false;
 				}
@@ -321,6 +325,8 @@
 				}
 			},
 			departmentRankDataClick(item, index) {
+				if(item.status)				//如果已经处于选中状态，不切换数据
+					return;
 				for (let i = 0; i < this.departmentRankList.length; i++) {
 					this.departmentRankList[i].status = false;
 				}
@@ -1411,6 +1417,7 @@
 						align-items: center;
 						.department_bar_title_left_row {
 							.department_bar_title {
+								cursor: pointer;
 								height: 47px;
 								font-size: 16px;
 								font-family: PingFang SC;
@@ -1420,6 +1427,7 @@
 							}
 									
 							.department_bar_title_sel {
+								cursor: pointer;
 								height: 47px;
 								font-size: 16px;
 								font-family: PingFang SC;

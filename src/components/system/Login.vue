@@ -31,7 +31,7 @@
 
 <script>
 	export default {
-		name: 'userLogin',
+		name: 'Login',
 		data() {
 			return {
 				functionList: ['智能椅管理', '智能桌管理', '桌椅联动管理', '用户管理', '数据统计分析']
