@@ -8,6 +8,7 @@ import echarts from 'echarts'
 import axios from 'axios'
 
 import '@/assets/css/table.scss'
+import '@/assets/js/verify.js'
 
 Vue.config.productionTip = false
 Vue.prototype.$echarts = echarts

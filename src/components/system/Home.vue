@@ -53,7 +53,7 @@
 							<img v-if="item.status" :src="item.icon_a" />
 							<img v-else :src="item.icon" />
 							<div :class="item.status ? 'menu_active_row_word_a':'menu_active_row_word'">{{item.title}}</div>
-							<img v-if="item.title != '首页展示'" src="../../assets/system/move.png" @click="activeMenuMove(index)"/>
+							<img v-if="item.title != '首页展示'" src="../../assets/system/move.png" @click.stop="activeMenuMove(index)"/>
 						</div>
 					</div>
 				</div>
@@ -253,13 +253,6 @@
 				this.activeSubMenuList.push(tempSubMenu);
 			},
 			activeMenuMove(index) {
-				// 阻止冒泡：点击子级时，不触发父级元素的点击事件
-				var e = this.getEvent();
-				if (window.event) {
-					e.cancelBubble = true;
-				}else if(e.preventDefault){
-					e.stopPropagation();		//阻止冒泡
-				}  
 				if(this.activeSubMenuList[index].status) {
 					if(index == this.activeSubMenuList.length - 1) {		//删除的是数组最后一个元素
 						if(this.activeSubMenuList.length > 1) {			//如果不止一个元素，则将选中状态给前一个元素，如果只有一个元素则不操作
@@ -272,23 +265,6 @@
 					}
 				}
 				this.activeSubMenuList.splice(index, 1);
-			},
-			getEvent(){			//获取event(兼容火狐)
-				if(window.event){return window.event;}
-				var func = getEvent.caller;
-				while(func != null){
-					var arg0 = func.arguments[0];
-					if(arg0){
-						if((arg0.constructor == Event || arg0.constructor == MouseEvent
-								|| arg0.constructor == KeyboardEvent)
-							|| (typeof(arg0) == "object" && arg0.preventDefault
-								&& arg0.stopPropagation)){
-							return arg0;
-						}
-					}
-					func = func.caller;
-				}
-				return null;
 			}
 		}
 	}
@@ -449,7 +425,8 @@
 						left: -58px;
 						padding: 12px 0;
 						min-width: 162px;
-						height: 114px;
+						// height: 114px;
+						background-color: #FFFFFF;
 						box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 						border-radius: 2px;
 						z-index: 998;
@@ -469,7 +446,7 @@
 						.gray_gap {
 							height: 1px;
 							width: 100%;
-							margin: 10px 0 10px 0;
+							margin: 6px 0 6px 0;
 							background-color: #F0F0F0;
 						}
 						.userinfo_dropdown_row:hover {

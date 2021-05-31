@@ -20,6 +20,7 @@ $background-color: #FFFFFF;
 			border-radius: 4px;
 			line-height: 32px;
 			background-color: $light-green;
+			cursor: pointer;
 			.table_button_box_word {
 				font-weight: 700;
 				font-size: 16px;
@@ -44,6 +45,7 @@ $background-color: #FFFFFF;
 				border-radius: 4px;
 				line-height: 32px;
 				background-color: $light-blue;
+				cursor: pointer;
 			}
 		}
 	}
@@ -51,10 +53,12 @@ $background-color: #FFFFFF;
 		width: 100%;
 		margin-top: 10px;
 		font-size: 14px;
+		overflow-x: auto;
 		.table tbody tr td{
-			padding: 6px;
+			padding: 12px;
 			vertical-align: middle;
 		}
+		
 		.operate_button {
 			display: flex;
 			align-items: center;
@@ -66,6 +70,7 @@ $background-color: #FFFFFF;
 				margin-right: 5px;
 				border-radius: 4px;
 				background-color: $light-green;
+				cursor: pointer;
 				img {
 					width: 15px;
 					height: 12px;
@@ -76,6 +81,7 @@ $background-color: #FFFFFF;
 				height: 24px;
 				border-radius: 4px;
 				background-color: $light-orange;
+				cursor: pointer;
 				img {
 					width: 12px;
 					height: 12px;
@@ -87,6 +93,7 @@ $background-color: #FFFFFF;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		width: 100%;
 		margin: 15px 0;
 		.table_left_number_info {
 			text-align: left;
@@ -147,7 +154,41 @@ $background-color: #FFFFFF;
 			}
 		}
 		.table_right_page_info {
-			
+			display: flex;
+			align-items: center;
+			.table_right_square {
+				width: 28px;
+				height: 28px;
+				border-radius: 2px;
+				border: 1px solid #6E6B5E;
+				img {
+					width: 18px;
+					height: 18px;
+				}
+				&:hover {
+					cursor: pointer;
+					background-color: #eee;
+				}
+			}
+			.table_right_square_num {
+				width: 28px;
+				height: 28px;
+				line-height: 28px;
+				border-radius: 2px;
+				border: 1px solid #6E6B5E;
+				&:hover {
+					cursor: pointer;
+					background-color: #eee;
+				}
+			}
+			.table_right_square_active {
+				width: 28px;
+				height: 28px;
+				line-height: 28px;
+				border-radius: 2px;
+				background-color: $light-green;
+				border: 1px solid #6E6B5E;
+			}
 		}
 	}
 

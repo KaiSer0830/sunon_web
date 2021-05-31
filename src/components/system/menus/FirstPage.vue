@@ -1307,8 +1307,9 @@
 						display: flex;
 						align-items: center;
 						height: 32px;
-						width: 256px;
+						width: 260px;
 						border: solid 1px #D9D9D9;
+						font-size: 10px;
 		
 						.visit_trend_data_img {
 							width: 20px;
@@ -1532,6 +1533,7 @@
 									height: 18px;
 									border-radius: 18px;
 									color: #262626;
+									line-height: 18px;
 									background-color: #F0F0F0;
 								}
 								.department_rank_bottom_content_index_sel {
@@ -1539,6 +1541,7 @@
 									height: 18px;
 									border-radius: 18px;
 									color: #FFFFFF;
+									line-height: 18px;
 									background-color: #7AB03A;
 								}
 								.department_rank_bottom_content_title {
