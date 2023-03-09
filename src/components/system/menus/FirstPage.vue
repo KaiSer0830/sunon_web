@@ -1,14 +1,14 @@
 <template>
 	<div class="first_page_container">
 		<div class="one_row_box">
-			<!--本年度总设备数量框-->
+			<!--本年度车辆数量框-->
 			<div class="device_box">
-				<div class="device_box_title">本年度总设备数量</div>
+				<div class="device_box_title">本年度车辆流量统计</div>
 				<div class="one_row_box_gap"></div>
 				<div class="device_box_content">
 					<div class="device_box_sum_num_content">
 						<span class="device_box_sum_num">25848</span>
-						<span class="device_box_sum_num_word">张</span>
+						<span class="device_box_sum_num_word">辆</span>
 					</div>
 					<div class="device_box_change_percent">
 						<span class="device_box_percent_word">同比上升&nbsp12.5%</span>
@@ -20,19 +20,19 @@
 				<div class="one_row_box_gap"></div>
 				<div class="device_box_bottom">
 					<div class="device_box_bottom_left">
-						<span>智能桌</span>
+						<span>货车</span>
 						<div>
 							<span class="device_box_bottom_word">400</span>
-							<span>张</span>
+							<span>辆</span>
 						</div>
 					</div>
 					<div class="device_box_straight_line"></div>
 
 					<div class="device_box_bottom_right">
-						<span>智能椅</span>
+						<span>小汽车</span>
 						<div>
 							<span class="device_box_bottom_word">200</span>
-							<span>张</span>
+							<span>辆</span>
 						</div>
 					</div>
 				</div>
@@ -60,7 +60,7 @@
 
 			<!--本周登录数量框-->
 			<div class="weekend_login_users_box">
-				<div class="weekend_login_users_box_title">本周登录数量</div>
+				<div class="weekend_login_users_box_title">本周违章数量</div>
 				<div class="one_row_box_gap"></div>
 				<div class="weekend_login_users_box_content">
 					<span>37291</span>
@@ -68,7 +68,7 @@
 				</div>
 				<div class="one_row_box_gap"></div>
 				<div class="weekend_login_users_box_bottom">
-					<span>日登录量</span>
+					<span>日违章量</span>
 					<span class="weekend_login_users_box_bottom_word">300</span>
 				</div>
 			</div>
@@ -96,7 +96,7 @@
 
 		<div class="three_row_box">
 			<div class="device_percent_box">
-				<div class="device_percent_title_box">各设备占比</div>
+				<div class="device_percent_title_box">各类车辆占比</div>
 				<div class="three_row_box_gap"></div>
 				<div class="device_percent_echart_box" ref="devicePercent"></div>
 			</div>
@@ -177,14 +177,14 @@
 					status: false
 				}],
 				departmentBodyDataList: [{
-					title: '各部门平均心率',
+					title: '各部门处理数量',
 					status: true
 				}, {
-					title: '各部门疲劳度',
+					title: '各部门违章数',
 					status: false
 				}],
 				departmentRankList: [{
-					title: '办公时长',
+					title: '部门',
 					status: true,
 					dataList: [{
 						title: '策划部',
@@ -209,7 +209,7 @@
 						value: 100
 					}]
 				}, {
-					title: '坐姿分布',
+					title: '违章统计',
 					status: false,
 					dataList: [{
 						title: '赵卫',
@@ -234,7 +234,7 @@
 						value: 85
 					}]
 				}, {
-					title: '桌面高度',
+					title: '车辆数据',
 					status: false,
 					dataList: [{
 						title: '770mm',
@@ -408,7 +408,7 @@
 					color: ["#47A1FF", "#9860E5", "#F3657C", "#FAD34B", "#7BD58D", "#4ECBCC"],
 					legend: {
 						bottom: 0,
-						data: ['云格智能座椅', '云格智能座椅二代(低配)', '智能蝴蝶椅', '站坐一号(智能桌)', 'i-tech(智能桌)', '德式班台(语音)'],
+						data: ['宝马', '奔驰', '奥迪', '丰田', '现代', '凯迪拉克'],
 					},
 					grid: {
 						left: 20,
@@ -446,37 +446,37 @@
 					series: [{
 						symbol: 'circle',
 						symbolSize: 1,
-						name: '云格智能座椅',
+						name: '宝马',
 						type: 'line',
 						data: numViewWeek1,
 					}, {
 						symbol: 'circle',
 						symbolSize: 1,
-						name: '云格智能座椅二代(低配)',
+						name: '奔驰',
 						type: 'line',
 						data: numViewWeek2,
 					}, {
 						symbol: 'circle',
 						symbolSize: 1,
-						name: '智能蝴蝶椅',
+						name: '奥迪',
 						type: 'line',
 						data: numViewWeek3,
 					}, {
 						symbol: 'circle',
 						symbolSize: 1,
-						name: '站坐一号(智能桌)',
+						name: '丰田',
 						type: 'line',
 						data: numViewWeek4,
 					}, {
 						symbol: 'circle',
 						symbolSize: 1,
-						name: 'i-tech(智能桌)',
+						name: '现代',
 						type: 'line',
 						data: numViewWeek5,
 					}, {
 						symbol: 'circle',
 						symbolSize: 1,
-						name: '德式班台(语音)',
+						name: '凯迪拉克',
 						type: 'line',
 						data: numViewWeek6,
 					}]
@@ -556,7 +556,7 @@
 					color: ["#47A1FF", "#9860E5", "#F3657C", "#FAD34B", "#7BD58D", "#4ECBCC"],
 					legend: {
 						bottom: 0,
-						data: ['云格智能座椅', '云格智能座椅二代(低配)', '智能蝴蝶椅', '站坐一号(智能桌)', 'i-tech(智能桌)', '德式班台(语音)'],
+						data: ['宝马', '奔驰', '奥迪', '丰田', '现代', '凯迪拉克'],
 					},
 					grid: {
 						left: 20,
@@ -596,42 +596,42 @@
 						{
 							symbol: 'circle',
 							symbolSize: 1,
-							name: '云格智能座椅',
+							name: '货车',
 							type: 'line',
 							data: numViewMonth1,
 						},
 						{
 							symbol: 'circle',
 							symbolSize: 1,
-							name: '云格智能座椅二代(低配)',
+							name: 'SUV',
 							type: 'line',
 							data: numViewMonth2,
 						},
 						{
 							symbol: 'circle',
 							symbolSize: 1,
-							name: '智能蝴蝶椅',
+							name: '小轿车',
 							type: 'line',
 							data: numViewMonth3,
 						},
 						{
 							symbol: 'circle',
 							symbolSize: 1,
-							name: '站坐一号(智能桌)',
+							name: '三轮车',
 							type: 'line',
 							data: numViewMonth4,
 						},
 						{
 							symbol: 'circle',
 							symbolSize: 1,
-							name: 'i-tech(智能桌)',
+							name: '摩托车',
 							type: 'line',
 							data: numViewMonth5,
 						},
 						{
 							symbol: 'circle',
 							symbolSize: 1,
-							name: '德式班台(语音)',
+							name: '电动车',
 							type: 'line',
 							data: numViewMonth6,
 						},
@@ -679,7 +679,7 @@
 					color: ["#47A1FF", "#9860E5", "#F3657C", "#FAD34B", "#7BD58D", "#4ECBCC"],
 					legend: {
 						bottom: 0,
-						data: ['云格智能座椅', '云格智能座椅二代(低配)', '智能蝴蝶椅', '站坐一号(智能桌)', 'i-tech(智能桌)', '德式班台(语音)'],
+						data: ['宝马', '奔驰', '奥迪', '丰田', '现代', '凯迪拉克'],
 					},
 					grid: {
 						left: 20,

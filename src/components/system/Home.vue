@@ -81,7 +81,7 @@
 		},
 		data() {
 			return {
-				companyName: '浙江圣奥家具制造有限公司',
+				companyName: '智慧管理交通平台',
 				userName: 'Aresn',
 				menuList: [{
 					title: '主页',
